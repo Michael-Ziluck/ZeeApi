@@ -16,12 +16,7 @@ public abstract class MonoCommand<T0> extends AbstractCommand {
     public abstract void run(CommandSender sender, T0 arg0);
 
     @Override
-    public boolean hasSubCommands() {
-        return false;
-    }
-
-    @Override
-    public int argumentCount() {
+    public int getArgumentCount() {
         return 1;
     }
 }

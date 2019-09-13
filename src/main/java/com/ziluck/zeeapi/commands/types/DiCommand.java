@@ -1,7 +1,7 @@
 package com.ziluck.zeeapi.commands.types;
 
 import com.ziluck.zeeapi.commands.CommandPermission;
-import com.ziluck.zeeapi.commands.exceptions.InvalidArgumentCountException;
+import com.ziluck.zeeapi.commands.exceptions.CommandCallException;
 import org.bukkit.command.CommandSender;
 
 public abstract class DiCommand<T0, T1> extends MonoCommand<T0> {
@@ -17,16 +17,11 @@ public abstract class DiCommand<T0, T1> extends MonoCommand<T0> {
 
     @Override
     public void run(CommandSender sender, T0 arg0) {
-        throw new InvalidArgumentCountException(this, "Cannot run " + getClass().getSimpleName() + " with less than " + argumentCount() + " arguments.");
+        throw new CommandCallException(this, "Cannot run " + getClass().getSimpleName() + " with less than " + getArgumentCount() + " arguments.");
     }
 
     @Override
-    public boolean hasSubCommands() {
-        return false;
-    }
-
-    @Override
-    public int argumentCount() {
+    public int getArgumentCount() {
         return 2;
     }
 }

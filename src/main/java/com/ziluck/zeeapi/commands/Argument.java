@@ -3,6 +3,8 @@ package com.ziluck.zeeapi.commands;
 import com.mojang.brigadier.arguments.ArgumentType;
 
 public interface Argument<T> {
+    String getName();
+
     <V> ArgumentType<V> getRawType();
 
     Class<T> getType();
@@ -15,5 +17,7 @@ public interface Argument<T> {
 
     void setLength(int length);
 
-    <V extends Argument<T>> V withPermission(CommandPermission permission);
+    CommandPermission getPermission();
+
+    void setPermission(CommandPermission permission);
 }

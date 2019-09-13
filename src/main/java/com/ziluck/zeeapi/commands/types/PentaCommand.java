@@ -1,7 +1,7 @@
 package com.ziluck.zeeapi.commands.types;
 
 import com.ziluck.zeeapi.commands.CommandPermission;
-import com.ziluck.zeeapi.commands.exceptions.InvalidArgumentCountException;
+import com.ziluck.zeeapi.commands.exceptions.CommandCallException;
 import org.bukkit.command.CommandSender;
 
 public abstract class PentaCommand<T0, T1, T2, T3, T4> extends TetraCommand<T0, T1, T2, T3> {
@@ -17,11 +17,11 @@ public abstract class PentaCommand<T0, T1, T2, T3, T4> extends TetraCommand<T0, 
 
     @Override
     public void run(CommandSender sender, T0 arg0, T1 arg1, T2 arg2, T3 arg3) {
-        throw new InvalidArgumentCountException(this, "Cannot run " + getClass().getSimpleName() + " with less than " + argumentCount() + " arguments.");
+        throw new CommandCallException(this, "Cannot run " + getClass().getSimpleName() + " with less than " + getArgumentCount() + " arguments.");
     }
 
     @Override
-    public int argumentCount() {
+    public int getArgumentCount() {
         return 5;
     }
 }
