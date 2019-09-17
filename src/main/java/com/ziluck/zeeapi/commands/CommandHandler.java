@@ -1,8 +1,6 @@
 package com.ziluck.zeeapi.commands;
 
 import com.ziluck.zeeapi.commands.exceptions.CommandRegistrationException;
-import com.ziluck.zeeapi.commands.types.DiCommand;
-import com.ziluck.zeeapi.commands.types.MonoCommand;
 import com.ziluck.zeeapi.commands.exceptions.UnknownCommandException;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,6 +33,11 @@ public class CommandHandler implements CommandExecutor {
         }
     }
 
+    /**
+     * Check the validity of the given command. This does not check the arguments of the command.
+     *
+     * @param command the command being validated
+     */
     private void validateCommand(Command command) {
         // check the command has a name
         if (command.getName() == null) {
@@ -54,6 +57,13 @@ public class CommandHandler implements CommandExecutor {
         }
     }
 
+    /**
+     * Check the validity of the given argument.
+     *
+     * @param command  the command being validated
+     * @param argument the argument being validated
+     * @param index    the index at which the argument appears in the command
+     */
     private void validateArgument(Command command, Argument argument, int index) {
         // check the argument has a name
         if (argument.getName() == null) {
@@ -82,6 +92,17 @@ public class CommandHandler implements CommandExecutor {
         }
     }
 
+    /**
+     * An override for Bukkit's
+     * {@link CommandExecutor#onCommand(CommandSender, org.bukkit.command.Command, String, String[])}. This does not do
+     * any of the validation of the arguments. That is performed by {@link Command#call(CommandSender, String, String[])}
+     *
+     * @param sender
+     * @param bukkitCommand
+     * @param label
+     * @param args
+     * @return
+     */
     @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command bukkitCommand, String label, String[] args) {
         Command command = commandMap.get(label);
@@ -90,7 +111,7 @@ public class CommandHandler implements CommandExecutor {
             throw new UnknownCommandException("Could not find command using alias '" + label + "'.");
         }
 
-        command.call(sender, args);
+        command.call(sender, label, args);
 
         return true;
     }
