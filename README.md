@@ -20,6 +20,9 @@ can be added, it is unlikely it will be needed.
 
 Each of the abstract classes are named using their corresponding Greek roots and are listed below:
 
+#### NullaryCommand
+A command without any arguments
+
 #### MonoCommand
 A command with a single argument.
 
