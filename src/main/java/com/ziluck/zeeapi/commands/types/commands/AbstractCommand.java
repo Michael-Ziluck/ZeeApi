@@ -25,6 +25,11 @@ public abstract class AbstractCommand implements Command {
     }
 
     @Override
+    public Plugin getPlugin() {
+        return plugin;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
