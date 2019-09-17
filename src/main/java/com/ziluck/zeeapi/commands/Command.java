@@ -1,10 +1,18 @@
 package com.ziluck.zeeapi.commands;
 
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.Plugin;
 
 import java.util.List;
 
 public interface Command extends Validatable<CommandSender>, Validator<CommandSender> {
+    /**
+     * Returns the plugin to which this Command is registered.
+     *
+     * @return the plugin to which this Command is registered
+     */
+    Plugin getPlugin();
+
     /**
      * Returns the number of arguments this command should have. This does not necessarily reflect the result of calling
      * {@code getArguments().size()} if the command has not yet been registered.
