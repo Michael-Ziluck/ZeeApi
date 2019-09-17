@@ -1,7 +1,5 @@
 package com.ziluck.zeeapi.commands;
 
-import org.bukkit.command.CommandSender;
-
 public abstract class AbstractCommand implements Command {
     private String name;
     private CommandPermission permission;
@@ -20,11 +18,6 @@ public abstract class AbstractCommand implements Command {
     }
 
     @Override
-    public void call(CommandSender sender, String[] args) {
-
-    }
-
-    @Override
     public String getName() {
         return name;
     }
@@ -37,15 +30,5 @@ public abstract class AbstractCommand implements Command {
     @Override
     public CommandPermission getPermission() {
         return permission;
-    }
-
-    @Override
-    public Validator<CommandSender> getValidator() {
-        return this;
-    }
-
-    @Override
-    public boolean isValid(CommandSender sender) {
-        return true;
     }
 }

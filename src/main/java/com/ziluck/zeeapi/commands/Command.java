@@ -13,7 +13,9 @@ public interface Command extends Validatable<CommandSender>, Validator<CommandSe
      */
     int getArgumentCount();
 
-    void call(CommandSender sender, String[] args);
+    default void call(CommandSender sender, String label, String[] args) {
+
+    }
 
     String getName();
 
@@ -24,4 +26,14 @@ public interface Command extends Validatable<CommandSender>, Validator<CommandSe
     List<Argument> getArguments();
 
     CommandPermission getPermission();
+
+    @Override
+    default boolean isValid(CommandSender commandSender) {
+        return true;
+    }
+
+    @Override
+    default Validator<CommandSender> getValidator() {
+        return this;
+    }
 }
