@@ -1,4 +1,7 @@
-package com.ziluck.zeeapi.commands;
+package com.ziluck.zeeapi.commands.types.commands;
+
+import com.ziluck.zeeapi.commands.Command;
+import com.ziluck.zeeapi.commands.CommandPermission;
 
 public abstract class AbstractCommand implements Command {
     private String name;

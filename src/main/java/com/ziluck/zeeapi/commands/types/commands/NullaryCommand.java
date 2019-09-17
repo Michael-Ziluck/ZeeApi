@@ -1,6 +1,5 @@
-package com.ziluck.zeeapi.commands.types;
+package com.ziluck.zeeapi.commands.types.commands;
 
-import com.ziluck.zeeapi.commands.AbstractCommand;
 import com.ziluck.zeeapi.commands.CommandPermission;
 
 public abstract class NullaryCommand extends AbstractCommand {

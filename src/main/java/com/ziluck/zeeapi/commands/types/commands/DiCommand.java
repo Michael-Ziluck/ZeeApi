@@ -1,4 +1,4 @@
-package com.ziluck.zeeapi.commands.types;
+package com.ziluck.zeeapi.commands.types.commands;
 
 import com.ziluck.zeeapi.commands.CommandPermission;
 import com.ziluck.zeeapi.commands.exceptions.CommandCallException;
