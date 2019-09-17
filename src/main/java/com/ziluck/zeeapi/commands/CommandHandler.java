@@ -40,7 +40,7 @@ public class CommandHandler implements CommandExecutor {
      */
     private void validateCommand(Command command) {
         // check the command has a name
-        if (command.getName() == null) {
+        if (command.getName() == null || command.getName().trim().length() == 0) {
             throw new CommandRegistrationException("Command has no name.");
         }
         // check the arguments list is not null
@@ -66,7 +66,7 @@ public class CommandHandler implements CommandExecutor {
      */
     private void validateArgument(Command command, Argument argument, int index) {
         // check the argument has a name
-        if (argument.getName() == null) {
+        if (argument.getName() == null || command.getName().trim().length() == 0) {
             throw new CommandRegistrationException("Argument at index " + index + " does not have a name.");
         }
         // check the raw type is set

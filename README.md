@@ -48,14 +48,14 @@ Commands and Arguments both have certain constraints to be considered valid
 when they are registered.
 
 Commands must have the following:
- - A non-null name
+ - A non-null and non-empty name
  - A non-null list of arguments (an empty list is valid)
  - A non-null permission (Use `CommandPermission.none()` instead of null)
  - A valid number of arguments (must match the number identified by
  `getArgumentCount()`)
  
  Arguments must have the following:
-  - A non-null name
+  - A non-null and non-empty name
   - A non-null raw type
   - A non-null type
   - Any greedy arguments last in the list
